@@ -137,8 +137,8 @@ void AddLine(matrix a)  // добавление строки
 
 void MakeEmptyMatrix(matrix a, BYTE n, BYTE m)  // создание пустой матрицы nxm
 {
-  //  a.beg->next = nullptr;
-    //a.beg->down = nullptr;
+    a.beg->next = nullptr;
+    a.beg->down = nullptr;
     a.n = 1;
     a.m = 1;
     for(BYTE i =1; i<n;i++ )
