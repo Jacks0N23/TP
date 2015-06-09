@@ -121,7 +121,7 @@ void AddLine(matrix a)  // добавление строки
 
     elem->next = nullptr;
     elem->down = nullptr;
-    a.cur->down = *elem;
+    a.cur->down = elem;
     pointer = a.cur;
 
     for (BYTE i = 2; i <a.m ; i++)
