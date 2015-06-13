@@ -10,7 +10,7 @@
 
 using namespace std;
 
-bool input(matrix a,ifstream& input_file, ofstream& output_file )
+bool input(matrix *a,ifstream& input_file, ofstream& output_file )
 {
     BYTE n,m,i,j;
     int val;
@@ -50,23 +50,23 @@ bool input(matrix a,ifstream& input_file, ofstream& output_file )
     }
 }
 
-void FreeMem(matrix a)
+void FreeMem(matrix *a)
 {
     if (EmptyCheck(a))
         cout << "Memory is empry" << endl;
     else
     {
-        while (a.n != 0)
+        while (a->n != 0)
         {
             DeleteLine(a);
         }
-        while (a.m !=0)
-            a.m --;
+        while (a->m !=0)
+            a->m --;
         cout << "Memory cleaned" << endl;
     }
 }
 
-void ChangeElem(matrix a, ofstream& output_file)
+void ChangeElem(matrix *a, ofstream& output_file)
 {
     BYTE k,i,j;
     int val;
@@ -80,7 +80,7 @@ void ChangeElem(matrix a, ofstream& output_file)
         cout << "\nColomn: ";
         cin >> j;
 
-        if(i > a.n || j >a.m || j <=0 || i<=0)
+        if(i > a->n || j > a->m || j <=0 || i<=0)
             cout << "Incorrect index" << endl;
         else
         {
@@ -97,7 +97,7 @@ void ChangeElem(matrix a, ofstream& output_file)
     }
 }
 
-void ChangeSize(matrix a, ofstream& output_file)
+void ChangeSize(matrix *a, ofstream& output_file)
 {
     BYTE n,m;
 
@@ -113,24 +113,24 @@ void ChangeSize(matrix a, ofstream& output_file)
         else
         {
 
-            if(n > a.n)
+            if(n > a->n)
             {
-                while(n != a.n)
+                while(n != a->n)
                     AddLine(a);
             }
-            if (n < a.n)
+            if (n < a->n)
             {
-                while (n != a.n)
+                while (n != a->n)
                     DeleteLine(a);
             }
-            if(m > a.m)
+            if(m > a->m)
             {
-                while(m != a.m)
+                while(m != a->m)
                     AddColumn(a);
             }
-            if (m < a.m)
+            if (m < a->m)
             {
-                while (m != a.m)
+                while (m != a->m)
                     DeleteColomn(a);
             }
             cout << "Size was changed"<< endl;

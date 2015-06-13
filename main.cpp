@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    matrix a;
+    matrix* a;
     bool flag;
     char  c;
     string s;
